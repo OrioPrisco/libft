@@ -36,12 +36,33 @@ SRC = ft_atoi.c\
 	ft_tolower.c\
 	ft_toupper.c\
 
+BONUS_SRC = ft_tolowerr.c\
+	ft_strncmp.c\
+	ft_strchr.c\
+	ft_strrchr.c\
+	ft_memchr.c\
+	ft_memcmp.c\
+	ft_strnstr.c\
+	ft_atoi.c\
+	ft_calloc.c\
+	ft_strdup.c\
+	ft_substr.c\
+	ft_strjoin.c\
+	ft_strtrim.c\
+	ft_strmapi.c\
+	ft_striteri.c\
+	ft_putchar_fd.c\
+	ft_putstr_fd.c\
+	ft_putendl_fd.c\
+	ft_putnbr_f.c\
 
 SRC_FOLDER = ./
 
 HEADERS_FOLDER = ./
 
 OBJS = $(patsubst %.c,$(OBJ_FOLDER)%.o,$(SRC))
+
+BONUS_OBJS = $(patsubst %.c,$(OBJ_FOLDER)%.o,$(BONUS_SRC))
 
 OBJ_FOLDER = $(SRC_FOLDER)
 
@@ -50,22 +71,20 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 	
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(ONJECTS)
-	ranlib $(NAME)
+	ar rcs $(NAME) $(OBJECTS)
+
+$bonus: $(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJECTS)
 
 $(OBJ_FOLDER)%.o : $(SRC_FOLDER)%.c
 	gcc -c $(CFLAGS) -I$(HEADERS_FOLDER) $< -o $@
 
 clean:
-ifneq ($(strip $(foreach f,$(OBJS),$(wildcard $(f)))),)
-	rm -f $(strip $(foreach f,$(OBJS),$(wildcard $(f))))
-endif
+	rm -f $(OBJS) $(BONUS_OBJS) 
 
 fclean: clean
-ifneq ($(wildcard $(NAME)),)
-	rm $(NAME)
-endif
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
