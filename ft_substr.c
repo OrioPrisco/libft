@@ -19,15 +19,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 	size_t	lens;
 
-	lens = ft_strlen(s);
+	if (!len)
+		return (ft_strdup(""));
+	lens = ft_strnlen(s, start + len - 1);
 	if (start > lens)
 		return (ft_strdup(""));
 	lens = lens - start;
-	if (lens > len)
-		lens = len;
-	str = malloc(lens + 1);
+	str = malloc(lens + 2);
 	if (!str)
 		return (0);
-	ft_strlcpy(str, s + start, lens + 1);
+	ft_memcpy(str, s + start, lens + 1);
+	str[lens + 1] = '\0';
 	return (str);
 }
