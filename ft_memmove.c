@@ -17,8 +17,10 @@ static void	*backward_memcpy(void *dest, const void *src, size_t n)
 	const unsigned char	*source;
 	unsigned char		*destin;
 
-	source = src + n;
-	destin = dest + n;
+	source = src;
+	destin = dest;
+	source += n;
+	destin += n;
 	while (n--)
 		*--destin = *--source;
 	return (dest);
