@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 //TODO : if f returns null, is it an allocation error or a valid value ?
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-#include <libft.h>
+#include "libft.h"
 
 //maybe allocate a small buffer, itoa into that, and putstr the buffer
 void	ft_putnbr_fd(int nb, int fd)

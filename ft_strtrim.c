@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 //use strncpy instead of strlcpy
 char	*ft_strtrim(const char *s, const char *set)
