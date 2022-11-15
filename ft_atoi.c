@@ -12,7 +12,7 @@
 
 #include <libft.h>
 
-static char	*ft_next_non_space(char *str)
+static const char	*ft_next_non_space(const char *str)
 {
 	while ((*str >= 9 && *str <= 13) || *str == ' ')
 		str++;
