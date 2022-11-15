@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*addr;
+	char	*addr;
 
 	addr = s;
 	while (n--)
