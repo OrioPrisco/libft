@@ -45,7 +45,11 @@ SRC = ft_atoi.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c\
 	ft_split.c\
-	ft_itoa.c
+	ft_itoa.c\
+	ft_memchrnul.c\
+	ft_strnchrnul.c\
+	ft_strnlen.c\
+	ft_strcpy.c
 
 
 BONUS_SRC = ft_lstnew.c\
@@ -69,7 +73,7 @@ BONUS_OBJS = $(patsubst %.c,$(OBJ_FOLDER)%.o,$(BONUS_SRC))
 
 OBJ_FOLDER = $(SRC_FOLDER)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -ggdb
 
 all: $(NAME)
 	
