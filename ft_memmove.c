@@ -40,8 +40,6 @@ static void	*forward_memcpy(void *dest, const void *src, size_t n)
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (dest == src)
-		return (dest);
 	if (dest > src)
 		return (backward_memcpy(dest, src, n));
 	return (forward_memcpy(dest, src, n));
