@@ -16,6 +16,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t	total;
+	void	*mem;
 
 	total = 0;
 	while (nmemb--)
@@ -24,5 +25,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		if (total < size)
 			return (0);
 	}
-	return (malloc(total));
+	mem = malloc(total);
+	if (!mem)
+		return (0);
+	ft_bzero(mem, total);
+	return (mem);
 }
