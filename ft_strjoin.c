@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-//use strcpy
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*str;
@@ -24,7 +23,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	str = malloc(l1 + l2 + 1);
 	if (!str)
 		return (0);
-	ft_strlcpy(str, s1, l1 + 1);
-	ft_strlcpy(str + l1, s2, l2 + 1);
+	ft_memcpy(str, s1, l1 + 1);
+	ft_memcpy(str + l1, s2, l2 + 1);
 	return (str);
 }
