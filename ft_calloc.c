@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <limits.h>
 
 //TODO : check for size_t max
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -22,7 +23,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	while (nmemb--)
 	{
 		total += size;
-		if (total < size)
+		if (total > INT_MAX)
 			return (0);
 	}
 	mem = malloc(total);
