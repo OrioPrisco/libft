@@ -14,13 +14,7 @@
 
 char	*ft_strchr(const char *s, char c)
 {
-	if (c == '\0')
-		return ((char *)s + ft_strlen(s));
-	while (*s)
-	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
-	}
-	return (0);
+	if (c == 0)
+		return ((char *)(s + ft_strlen(s)));
+	return (ft_memchr(s, c, ft_strlen(s)));
 }
