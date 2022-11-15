@@ -27,11 +27,11 @@ SRC = ft_atoi.c\
 	ft_strlcpy.c\
 	ft_strlen.c\
 	ft_strnstr.c\
-	ft_strrchr.c\
 	ft_tolower.c\
 	ft_toupper.c\
 	ft_strncmp.c\
 	ft_strrchr.c\
+	ft_strchr.c\
 	ft_memchr.c\
 	ft_memcmp.c\
 	ft_strdup.c\
@@ -49,7 +49,6 @@ SRC = ft_atoi.c\
 BONUS_SRC = ft_lstnew.c\
 	ft_lstadd_front.c\
 	ft_lstsize.c\
-	ft_lstlast.c\
 	ft_lstlast.c\
 	ft_lstadd_back.c\
 	ft_lstdelone.c\
@@ -90,7 +89,7 @@ fclean: clean
 re: fclean all
 
 so:
-	$(CC) -I. -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BONUS_SRC)
+	$(CC) -c -I. -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BONUS_SRC)
 	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_OBJS)
 
 .PHONY: all clean fclean re bonus so
