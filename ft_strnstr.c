@@ -13,6 +13,9 @@
 #include "libft.h"
 
 //TODO : advance big by number of matched characters
+//i double checked and it should work in theory
+//worst thing is i know i asked myself this question before
+//but can't remeber where, maybe it was in a zach like ?
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	lil_len;
