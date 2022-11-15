@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strnchrnul(const char *s, char c, size_t n)
 {
 	return (ft_memchrnul(s, c, n));
