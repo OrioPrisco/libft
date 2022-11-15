@@ -46,16 +46,17 @@ static	const char	*ft_split_one(char **ptr, const char *str, char c)
 		str++;
 	next = ft_strchr(str, c);
 	if (next)
-		len = next - str + 1;
+		len = next - str;
 	else
 	{
-		len = ft_strlen(str) + 1;
-		next = str + len - 1;
+		len = ft_strlen(str);
+		next = str + len;
 	}
-	*ptr = malloc(len);
+	*ptr = malloc(len + 1);
 	if (!ptr)
 		return (0);
-	ft_strlcpy(*ptr, str, len);
+	ft_memcpy(*ptr, str, len);
+	(*ptr)[len] = '\0';
 	return (next);
 }
 
@@ -66,11 +67,10 @@ char	**ft_split(const char *str, char c)
 	size_t	i;
 
 	words = count_words(str, c);
-	tab = malloc(sizeof(*tab) * (words + 1));
+	tab = ft_calloc(words + 1, sizeof(char *));
 	if (!tab)
 		return (0);
 	i = 0;
-	ft_bzero(tab, sizeof(*tab) * (words + 1));
 	while (i < words)
 	{
 		str = ft_split_one(tab + i, str, c);
