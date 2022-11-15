@@ -18,6 +18,6 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	addr = s;
 	while (n--)
-		*addr = (char)c;
+		*addr++ = (char)c;
 	return (s);
 }
