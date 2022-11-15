@@ -12,22 +12,19 @@
 
 #include "libft.h"
 
+//TODO : advance big by number of matched characters
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	i;
+	size_t	lil_len;
 
 	if (!*little)
 		return ((char *)big);
-	while (*big && len)
+	lil_len = ft_strlen(little);
+	if (lil_len > len)
+		return (0);
+	while (*big && len - (lil_len - 1))
 	{
-		i = 0;
-		while (big[i] && little[i] && len - i)
-		{
-			if (big[i] != little[i])
-				break ;
-			i++;
-		}
-		if (!little[i])
+		if (!ft_memcmp(big, little, lil_len))
 			return ((char *)big);
 		big++;
 		len--;
