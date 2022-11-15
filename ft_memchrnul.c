@@ -10,16 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	*ft_memchrnul(const void *s, unsigned char c, size_t n)
 {
 	unsigned char	*addr;
 
 	if (!n)
 		return (addr);
-	addr = s;
+	addr = (unsigned char *)s;
 	while (n--)
 	{
-		if (addr == c)
+		if (*addr == c)
 			return (addr);
 		addr++;
 	}
