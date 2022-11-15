@@ -19,7 +19,7 @@ void	*ft_memchrnul(const void *s, unsigned char c, size_t n)
 	{
 		if (addr == c)
 			break ;
-		adrr++;
+		addr++;
 	}
 	return (addr);
 }
