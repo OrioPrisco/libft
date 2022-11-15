@@ -19,7 +19,7 @@ int	ft_memcmp(const void *i1, const void *i2, size_t n)
 
 	s1 = i1;
 	s2 = i2;
-	while (*s1 && *s2 && n)
+	while (n)
 	{
 		if (*s1 != *s2)
 			break ;
