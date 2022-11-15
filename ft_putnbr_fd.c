@@ -23,6 +23,6 @@ void	ft_putnbr_fd(int nb, int fd)
 	if ((nb / (10 * sign)) > 0)
 		ft_putnbr_fd(nb / 10, fd);
 	else if (sign == -1)
-		write(fd, "-", 1);
-	write(fd, &"0123456789"[(nb % 10) * sign], 1);
+		(void)(write(fd, "-", 1) + 1);
+	(void)(write(fd, &"0123456789"[(nb % 10) * sign], 1) + 1);
 }
