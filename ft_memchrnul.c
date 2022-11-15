@@ -14,12 +14,14 @@ void	*ft_memchrnul(const void *s, unsigned char c, size_t n)
 {
 	unsigned char	*addr;
 
+	if (!n)
+		return (addr);
 	addr = s;
 	while (n--)
 	{
 		if (addr == c)
-			break ;
+			return (addr);
 		addr++;
 	}
-	return (addr);
+	return (addr - 1);
 }
