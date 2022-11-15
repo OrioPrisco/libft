@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = libft.a
-
+CC = cc
 SRC = ft_atoi.c\
 	ft_bzero.c\
 	ft_calloc.c\
@@ -88,7 +88,7 @@ bonus: $(OBJS) $(BONUS_OBJS)
 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 $(OBJ_FOLDER)%.o : $(SRC_FOLDER)%.c
-	gcc -c $(CFLAGS) -I$(HEADERS_FOLDER) $< -o $@
+	$(CC) -c $(CFLAGS) -I$(HEADERS_FOLDER) $< -o $@
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS) 
