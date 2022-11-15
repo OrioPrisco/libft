@@ -35,6 +35,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strchr(const char *s, char c);
 char	*ft_strrchr(const char *s, char c);
 void	*ft_memchr(const void *s, unsigned char c, size_t n);
+void	*ft_memchrnul(const void *s, unsigned char c, size_t n);
 int		ft_memcmp(const void *i1, const void *i2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *str);
