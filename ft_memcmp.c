@@ -53,7 +53,8 @@ int	ft_memcmp(const void *i1, const void *i2, size_t n)
 	size_t		shift;
 
 	shift = (intptr_t)i1 % sizeof(WORD_TYPE);
-	if (shift != ((intptr_t)i2 % sizeof(WORD_TYPE)))
+	if (shift != ((intptr_t)i2 % sizeof(WORD_TYPE))
+		|| n < shift + sizeof(WORD_TYPE))
 		return (ft_memcmp_byte(i1, i2, n));
 	res = ft_memcmp_byte(i1, i2, shift);
 	if (res)
