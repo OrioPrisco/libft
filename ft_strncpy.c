@@ -12,7 +12,11 @@
 
 #include "libft.h"
 
-void	ft_strncpy(char *dest, const char *src, size_t size)
+size_t	ft_strncpy(char *dest, const char *src, size_t size)
 {
-	ft_memcpy(dest, src, ft_strnlen(src, n));
+	size_t	len;
+
+	len = ft_strnlen(src, size);
+	ft_memcpy(dest, src, len);
+	return (len);
 }
