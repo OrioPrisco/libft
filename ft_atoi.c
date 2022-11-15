@@ -27,9 +27,11 @@ int	ft_atoi(const char *str)
 	result = 0;
 	sign = 1;
 	str = ft_next_non_space(str);
-	if (*str == '+' || *str == '-')
-		if (*str++ == '-')
-			sign = -1;
+	if (*str == '-')
+	{
+		str++;
+		sign = -1;
+	}
 	while (*str >= '0' && *str <= '9')
 	{
 		result *= 10;
