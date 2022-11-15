@@ -12,34 +12,6 @@
 
 #include <libft.h>
 
-static const char	*ft_next_word(const char *str, const char *sep, int skip)
-{
-	if (!(*str))
-		return (str);
-	while (*str && ft_strchr(sep, *str))
-		str++;
-	while (skip && *str && !ft_strchr(sep, *str))
-		str++;
-	return (str);
-}
-
-static const char	*ft_split_one(char **tab, const char *str, const char *sep)
-{
-	int	size;
-
-	if (ft_strchr(sep, *str))
-		str = ft_next_word(str, sep, 0);
-	size = ft_next_word(str, sep, 1) - str;
-	*tab = malloc(size + 1);
-	if (!(*tab))
-		return (0);
-	while (*str && !ft_strchr(sep, *str))
-		*(*tab)++ = *str++;
-	**tab = '\0';
-	*tab -= size;
-	return (str);
-}
-
 static char	**free_all(char **tab, int size)
 {
 	while (tab && size)
@@ -48,30 +20,63 @@ static char	**free_all(char **tab, int size)
 	return (0);
 }
 
-char	**ft_split(const char *src, const char *charset)
+static size_t	count_words(const char *str, char c)
 {
-	const char	*str;
-	char		**tab;
-	int			i;
-	int			size;
+	size_t	count;
 
-	str = src;
-	size = 0;
-	while (*ft_next_word(str, charset, 0))
+	count = 0;
+	while (*str)
 	{
-		str = ft_next_word(str, charset, 1);
-		size++;
+		while (*str && *str == c)
+			str++;
+		if (*str && *str != c)
+			count++;
+		while (*str && *str != c)
+			str++;
 	}
-	tab = malloc((size + 1) * sizeof(char *));
+	return (count);
+}
+
+static	const char	*ft_split_one(char **ptr, const char *str, char c)
+{
+	const char	*next;
+	size_t		len;
+
+	while (*str && *str == c)
+		str++;
+	next = ft_strchr(str, c);
+	if (next)
+		len = next - str + 1;
+	else
+	{
+		len = ft_strlen(str) + 1;
+		next = str + len - 1;
+	}
+	*ptr = malloc(len);
+	if (!ptr)
+		return (0);
+	ft_strlcpy(*ptr, str, len);
+	return (next);
+}
+
+char	**ft_split(const char *str, char c)
+{
+	char	**tab;
+	size_t	words;
+	size_t	i;
+
+	words = count_words(str, c);
+	tab = malloc(words + 1);
 	if (!tab)
 		return (0);
 	i = 0;
-	while (i < size)
+	ft_bzero(tab, sizeof(*tab) * (words + 1));
+	while (i < words)
 	{
-		src = ft_split_one(tab + i++, src, charset);
-		if (!src)
+		str = ft_split_one(tab + i, str, c);
+		if (!str)
 			return (free_all(tab, i));
+		i++;
 	}
-	tab[i] = 0;
 	return (tab);
 }
