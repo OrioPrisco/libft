@@ -17,17 +17,10 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	i;
 	size_t	ret;
 
-	i = 0;
-	while (dest[i] && i < size)
-		i++;
+	i = ft_strnlen(dest, size);
 	if (size <= i)
 		return (size + ft_strlen(src));
-	ret = ft_strlen(src) + i;
-	while ((i < size - 1) && *src)
-	{
-		dest[i] = *src++;
-		i++;
-	}
+	ret = ft_strncpy(dest + i, src, size - i - 1);
 	dest[i] = '\0';
-	return (ret);
+	return (ret + 1);
 }
