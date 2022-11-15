@@ -28,4 +28,5 @@ char	*strdup(const char *s)
 		str[i] = s[i];
 		i++;
 	}
+	return (str);
 }
