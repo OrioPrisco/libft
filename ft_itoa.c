@@ -46,7 +46,7 @@ char	*ft_itoa(int n)
 	char	*str;
 	char	*str2;
 
-	str = malloc(ft_itoa_len(n));
+	str = malloc(ft_itoa_len(n) + 1);
 	if (!str)
 		return (0);
 	str2 = str;
