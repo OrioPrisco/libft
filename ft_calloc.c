@@ -16,19 +16,11 @@
 //TODO : check for size_t max
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	total;
 	void	*mem;
 
-	total = 0;
-	while (nmemb--)
-	{
-		total += size;
-		if (total > INT_MAX)
-			return (0);
-	}
-	mem = malloc(total);
+	mem = malloc(nmemb * size);
 	if (!mem)
 		return (0);
-	ft_bzero(mem, total);
+	ft_bzero(mem, nmemb * size);
 	return (mem);
 }
