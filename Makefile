@@ -48,6 +48,7 @@ SRC = ft_atoi.c\
 	ft_itoa.c\
 	ft_memchrnul.c\
 	ft_strnchrnul.c\
+	ft_strchrnul.c\
 	ft_strnlen.c\
 	ft_strcpy.c
 
