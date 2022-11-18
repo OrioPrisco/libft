@@ -86,10 +86,10 @@ bonus: $(OBJS) $(BONUS_OBJS)
 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 $(OBJ_FOLDER)%.o : $(SRC_FOLDER)%.c
-	$(CC) -c $(CFLAGS) -I$(HEADERS_FOLDER) $< -o $@
+	$(CC) -c $(CFLAGS) -I$(HEADERS_FOLDER) -fPIC $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS) 
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
