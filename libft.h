@@ -18,6 +18,10 @@
 # define WORD_TYPE unsigned int
 # define BYTE unsigned char
 
+# define FT_ABS(x) ((x) >= 0 ? (x) : -(x))
+# define FT_MAX(x, y) ((x) >= (y) ? (x) : (y))
+# define FT_MIN(x, y) ((x) >= (y) ? (y) : (x))
+
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
