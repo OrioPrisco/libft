@@ -14,7 +14,7 @@
 
 size_t	ft_index(const char *str, char c)
 {
-	char *s;
+	char	*s;
 
 	s = ft_strchr(str, c);
 	if (s)
