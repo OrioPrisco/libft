@@ -51,7 +51,8 @@ SRC = ft_atoi.c\
 	ft_strchrnul.c\
 	ft_strnlen.c\
 	ft_strcpy.c\
-	ft_index.c
+	ft_index.c\
+	ft_maxint.c
 
 
 BONUS_SRC = ft_lstnew.c\
