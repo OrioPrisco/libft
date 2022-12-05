@@ -53,9 +53,7 @@ SRC = ft_atoi.c\
 	ft_strcpy.c\
 	ft_index.c\
 	ft_maxint.c
-
-
-BONUS_SRC = ft_lstnew.c\
+	ft_lstnew.c\
 	ft_lstadd_front.c\
 	ft_lstsize.c\
 	ft_lstlast.c\
@@ -73,8 +71,6 @@ HEADERS_FOLDER = includes/
 
 OBJS = $(patsubst %.c,$(OBJ_FOLDER)%.o,$(SRC))
 
-BONUS_OBJS = $(patsubst %.c,$(OBJ_FOLDER)%.o,$(BONUS_SRC))
-
 OBJ_FOLDER = objs/
 
 CFLAGS = -Wall -Wextra -Werror
@@ -84,11 +80,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
 $(OBJ_FOLDER)%.o : $(SRC_FOLDER)%.c
-	$(CC) -c $(CFLAGS) -I$(HEADERS_FOLDER) -fPIC $< -o $@
+	$(CC) -c $(CFLAGS) $(addprefix -I,$(HEADERS_FOLDER)) -fPIC $< -o $@
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
