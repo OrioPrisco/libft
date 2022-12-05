@@ -91,11 +91,18 @@ $(OBJ_FOLDER)%.o : $(SRC_FOLDER)%.c
 
 clean:
 	rm -f $(OBJS) $(LIBS)
+	for lib in $(patsubst lib%.a,%,$(LIBS)) ; do \
+		make -C $$lib clean; \
+	done
 
 fclean: clean
 	rm -f $(NAME)
+	for lib in $(patsubst lib%.a,%,$(LIBS)) ; do \
+		make -C $$lib fclean; \
+	done
 
 re: fclean all
+	
 
 so: $(OBJS) $(BONUS_OBJS)
 	$(CC) -c -I. -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BONUS_SRC)
