@@ -103,11 +103,6 @@ fclean: clean
 
 re: fclean all
 	
-
-so: $(OBJS) $(BONUS_OBJS)
-	$(CC) -c -I. -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BONUS_SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_OBJS)
-
 .PHONY: all clean fclean re bonus so
 .SUFFIXES:
 MAKEFLAGS += --warn-undefined-variables
