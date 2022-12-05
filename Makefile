@@ -67,17 +67,17 @@ BONUS_SRC = ft_lstnew.c\
 	ft_strncpy.c
 
 
-SRC_FOLDER = ./
+SRC_FOLDER = srcs/
 
-HEADERS_FOLDER = ./
+HEADERS_FOLDER = includes/
 
 OBJS = $(patsubst %.c,$(OBJ_FOLDER)%.o,$(SRC))
 
 BONUS_OBJS = $(patsubst %.c,$(OBJ_FOLDER)%.o,$(BONUS_SRC))
 
-OBJ_FOLDER = $(SRC_FOLDER)
+OBJ_FOLDER = objs/
 
-CFLAGS = -Wall -Wextra -Werror -ggdb
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 	
