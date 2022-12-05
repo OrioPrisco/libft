@@ -52,7 +52,7 @@ SRC = ft_atoi.c\
 	ft_strnlen.c\
 	ft_strcpy.c\
 	ft_index.c\
-	ft_maxint.c
+	ft_maxint.c\
 	ft_lstnew.c\
 	ft_lstadd_front.c\
 	ft_lstsize.c\
@@ -64,6 +64,7 @@ SRC = ft_atoi.c\
 	ft_lstmap.c\
 	ft_strncpy.c
 
+LIBS=libftprintf.a
 
 SRC_FOLDER = srcs/
 
@@ -77,14 +78,19 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 	
-$(NAME): $(OBJS)
+
+lib%.a : %/
+	make -C $<
+	cp $</$@ $@
+
+$(NAME): $(OBJS) $(LIBS)
 	ar rcs $(NAME) $(OBJS)
 
 $(OBJ_FOLDER)%.o : $(SRC_FOLDER)%.c
 	$(CC) -c $(CFLAGS) $(addprefix -I,$(HEADERS_FOLDER)) -fPIC $< -o $@
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS) $(LIBS)
 
 fclean: clean
 	rm -f $(NAME)
