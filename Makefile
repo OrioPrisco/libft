@@ -64,7 +64,9 @@ SRC = ft_atoi.c\
 	ft_lstmap.c\
 	ft_strncpy.c
 
-LIBS=libftprintf.a
+LIBS	=	libftprintf.a\
+			libgetnextline.a
+
 
 SRC_FOLDER = srcs/
 
