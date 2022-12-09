@@ -19,6 +19,7 @@
 # define BYTE unsigned char
 
 int		ft_maxint(int a, int b);
+int		ft_absint(int a, int b);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
