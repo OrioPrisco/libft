@@ -54,6 +54,7 @@ SRC = ft_atoi.c\
 	ft_index.c\
 	ft_maxint.c\
 	ft_absint.c\
+	ft_minint.c\
 	ft_lstnew.c\
 	ft_lstadd_front.c\
 	ft_lstsize.c\
