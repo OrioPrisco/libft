@@ -47,7 +47,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	const BYTE	*destin;
 	const BYTE	*source;
-	int			res;
 	size_t		shift;
 
 	shift = (intptr_t)dest % sizeof(WORD_TYPE);
