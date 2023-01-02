@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 # include <stdlib.h>
-# define WORD_TYPE unsigned int
+# define WORD_TYPE unsigned long
 # define BYTE unsigned char
 
 int		ft_maxint(int a, int b);
