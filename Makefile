@@ -13,6 +13,7 @@
 NAME = libft.a
 CC = cc
 SRC = ft_atoi.c\
+	ft_atod.c\
 	ft_bzero.c\
 	ft_calloc.c\
 	ft_isalnum.c\
