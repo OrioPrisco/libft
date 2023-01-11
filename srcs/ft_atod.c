@@ -25,7 +25,7 @@ static double	get_multiplier(const char *str)
 
 	res = 1;
 	if (*str && *str == '.')
-		return (1);
+		return (0.1);
 	str++;
 	while (*str && *str >= '0' && *str <= '9')
 	{
