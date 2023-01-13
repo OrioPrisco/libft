@@ -93,7 +93,7 @@ $(NAME): $(OBJS) $(LIBS)
 	ar rcs $(NAME) $(OBJS)
 
 $(OBJ_FOLDER)%.o : $(SRC_FOLDER)%.c
-	$(CC) -c $(CFLAGS) $(addprefix -I,$(HEADERS_FOLDER)) -fPIC $< -o $@
+	$(CC) -c $(CFLAGS) $(addprefix -I,$(HEADERS_FOLDER)) $< -o $@
 
 clean:
 	rm -f $(OBJS) $(LIBS)
