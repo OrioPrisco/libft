@@ -66,7 +66,8 @@ SRC = ft_atoi.c\
 	ft_lstclear.c\
 	ft_lstiter.c\
 	ft_lstmap.c\
-	ft_strncpy.c
+	ft_strncpy.c\
+	ft_strtol.c\
 
 LIBS	=	libftprintf.a\
 			libgetnextline.a

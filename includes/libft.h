@@ -64,6 +64,7 @@ void	ft_putnbr_fd(int n, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 int		ft_atod(const char *str, double *res);
+long	ft_strtol(const char *nptr, char **endptr, int base);
 
 typedef struct s_list
 {
