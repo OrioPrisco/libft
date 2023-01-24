@@ -81,7 +81,7 @@ OBJS = $(patsubst %.c,$(OBJ_FOLDER)%.o,$(SRC))
 
 OBJ_FOLDER = objs/
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIC
 
 all: $(NAME)
 	
