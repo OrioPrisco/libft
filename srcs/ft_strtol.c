@@ -39,13 +39,6 @@ long	strtol_impl(const char *nptr, char **endptr, int base, int sign)
 	return (result * sign);
 }
 
-const char	*ft_next_non_space(const char *str)
-{
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	return (str);
-}
-
 long	ft_strtol(const char *nptr, char **endptr, int base)
 {
 	int	sign;

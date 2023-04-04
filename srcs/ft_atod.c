@@ -12,13 +12,6 @@
 
 #include "libft.h"
 
-static const char	*ft_next_non_space(const char *str)
-{
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	return (str);
-}
-
 static double	get_multiplier(const char *str)
 {
 	double	res;
