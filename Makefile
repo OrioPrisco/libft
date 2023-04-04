@@ -76,14 +76,15 @@ LIBS	=	libftprintf.a\
 SRC_FOLDER = srcs/
 
 HEADERS_FOLDER = includes/
-
-OBJS = $(patsubst %.c,$(OBJ_FOLDER)%.o,$(SRC))
-
 OBJ_FOLDER = objs/
+
+OBJS		=	$(patsubst %.c,$(OBJ_FOLDER)%.o,$(SRC))
+COMMANDS	=	$(patsubst %.c,$(OBJ_FOLDER)%.cc,$(SRC))
+DEPENDS		:=	$(patsubst %.c,$(OBJ_FOLDER)%.d,$(SRC))
 
 CFLAGS = -Wall -Wextra -Werror -fPIC
 
-all: $(NAME)
+all: $(NAME) compile_commands.json
 	
 
 lib%.a : %/
@@ -93,17 +94,26 @@ lib%.a : %/
 $(NAME): $(OBJS) $(LIBS)
 	ar rcs $(NAME) $(OBJS)
 
-$(OBJ_FOLDER)%.o : $(SRC_FOLDER)%.c
-	$(CC) -c $(CFLAGS) $(addprefix -I,$(HEADERS_FOLDER)) $< -o $@
+COMP_COMMAND = $(CC) -c $(CFLAGS) $(addprefix -I,$(HEADERS_FOLDER)) -MMD -MP $< -o $@
+CONCAT = awk 'FNR==1 && NR!=1 {print ","}{print}'
+
+$(OBJ_FOLDER)%.o $(OBJ_FOLDER)%.cc: $(SRC_FOLDER)%.c Makefile
+	$(COMP_COMMAND)
+	printf '{\n\t"directory" : "$(shell pwd)",\n\t"command" : "$(COMP_COMMAND)",\n\t"file" : "$<"\n}' > $(OBJ_FOLDER)$*.cc
+
+compile_commands.json : $(COMMANDS) Makefile
+	echo "[" > compile_commands.json
+	$(CONCAT) $(COMMANDS) >> compile_commands.json
+	echo "]" >> compile_commands.json
 
 clean:
-	rm -f $(OBJS) $(LIBS)
+	rm -f $(OBJS) $(LIBS) $(DEPENDS) $(COMMANDS)
 	for lib in $(patsubst lib%.a,%,$(LIBS)) ; do \
 		make -C $$lib clean; \
 	done
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) compile_commands.json
 	for lib in $(patsubst lib%.a,%,$(LIBS)) ; do \
 		make -C $$lib fclean; \
 	done
