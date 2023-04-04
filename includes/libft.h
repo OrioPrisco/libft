@@ -66,6 +66,8 @@ char		*ft_itoa(int n);
 int			ft_atod(const char *str, double *res);
 long		ft_strtol(const char *nptr, char **endptr, int base);
 const char	*ft_next_non_space(const char *str);
+_Bool		ft_strtol_check_int(const char *str, const char *endptr,
+				long parsed);
 
 typedef struct s_list
 {

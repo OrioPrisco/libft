@@ -69,6 +69,7 @@ SRC = ft_atoi.c\
 	ft_strncpy.c\
 	ft_strtol.c\
 	ft_next_non_space.c\
+	ft_strtol_check_int.c\
 
 LIBS	=	libftprintf.a\
 			libgetnextline.a
