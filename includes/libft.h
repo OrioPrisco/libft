@@ -63,7 +63,8 @@ void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 char		**ft_split(char const *s, char c);
 char		*ft_itoa(int n);
-int			ft_atod(const char *str, double *res);
+_Bool		ft_atod(const char *str, double *res);
+_Bool		ft_atold(const char *str, long double *res);
 long		ft_strtol(const char *nptr, char **endptr, int base);
 const char	*ft_next_non_space(const char *str);
 _Bool		ft_strtol_check_int(const char *str, const char *endptr,
