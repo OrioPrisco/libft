@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atod.c                                          :+:      :+:    :+:   */
+/*   ft_strtold.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: OrioPrisco <47635210+OrioPrisco@users      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -27,7 +27,7 @@ static double	get_multiplier(const char *str)
 	return (res);
 }
 
-_Bool	ft_atold(const char *str, long double *res)
+long double	ft_strtold(const char *str, char **endptr)
 {
 	int		sign;
 	double	result;
@@ -49,20 +49,7 @@ _Bool	ft_atold(const char *str, long double *res)
 		}
 		str++;
 	}
-	if (*str)
-		return (1);
-	return (*res = result * sign, 0);
-}
-
-_Bool	ft_atod(const char *str, double *res)
-{
-	long double	ld;
-
-	if (ft_atold(str, &ld))
-	{
-		*res = ld;
-		return (1);
-	}
-	*res = ld;
-	return (0);
+	if (endptr)
+		*endptr = (char *)str;
+	return (result * sign);
 }

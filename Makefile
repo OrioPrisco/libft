@@ -13,7 +13,6 @@
 NAME = libft.a
 CC = cc
 SRC = ft_atoi.c\
-	ft_atod.c\
 	ft_bzero.c\
 	ft_calloc.c\
 	ft_isalnum.c\
@@ -70,6 +69,7 @@ SRC = ft_atoi.c\
 	ft_strtol.c\
 	ft_next_non_space.c\
 	ft_strtol_check_int.c\
+	ft_strtold.c\
 
 LIBS	=	libftprintf.a\
 			libgetnextline.a
