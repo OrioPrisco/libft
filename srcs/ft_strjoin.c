@@ -6,11 +6,12 @@
 /*   By: OrioPrisco <47635210+OrioPrisco@users      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:05:45 by OrioPrisc         #+#    #+#             */
-/*   Updated: 2022/11/08 13:13:10 by OrioPrisc        ###   ########.fr       */
+/*   Updated: 2023/09/22 15:37:21 by OrioPrisc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
