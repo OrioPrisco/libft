@@ -6,9 +6,11 @@
 /*   By: OrioPrisco <47635210+OrioPrisco@users      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:46:56 by OrioPrisc         #+#    #+#             */
-/*   Updated: 2022/12/09 17:47:40 by OrioPrisc        ###   ########.fr       */
+/*   Updated: 2024/02/06 13:25:15 by OrioPrisc        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_absint(int a)
 {
